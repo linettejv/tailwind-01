@@ -1,22 +1,21 @@
-import MyModal from "./components/modal";
-import "./index.css";
+import './index.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Sheets from './pages/Sheetjs/sheet';
+import ModalPage from './pages/Modal/modalDialog';
+import HomePage from './pages/Home/homePage';
+import SheetsPage from './pages/Excelpage/exceldisplay';
 
 function App() {
   return (
     <>
-      <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-        <div class="shrink-0">
-          <img class="h-12 w-12" src="/assets/images.png" alt="ChitChat Logo" />
-        </div>
-        <div>
-          <div>
-
-          <div class="text-xl font-medium text-black">ChitChat</div>
-          <p class="text-slate-500">You have a new message!</p>
-          </div>
-        </div>
-      </div>
-      <MyModal/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/modal" element={<ModalPage />} />
+          <Route path="/sheets" element={<Sheets />} />
+          <Route path="/mysheet" element={<SheetsPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
